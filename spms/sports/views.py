@@ -1,10 +1,12 @@
-from django.shortcuts import render
-from .models import *
 from django.http import JsonResponse
 import datetime
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
+from django.shortcuts import render,redirect
 
+from .models import *
 
 # Create your views here.
 
@@ -22,42 +24,38 @@ def news(request):
     return render(request,'sports/news.html',context)
 
 
-def registration(request):
+# def registration(request):
 
-    page='register'
-    form=MyUserCreationForm()
+#     page='register'
+#     form=MyUserCreationForm()
 
-    if request.method == 'POST':
-        form = MyUserCreationForm(request.POST)
+#     if request.method == 'POST':
+#         form = MyUserCreationForm(request.POST)
 
-        if form.is_valid():
-            user=form.save(commit=False)
-            user.username=user.username.lower()
-            user.save()
-            login(request,user)
-            return redirect('home')
+#         if form.is_valid():
+#             user=form.save(commit=False)
+#             user.username=user.username.lower()
+#             user.save()
+#             login(request,user)
+#             return redirect('home')
 
-        else:
-            messages.error(request,'An error occured during registration')
-
-
-    context={'form':form}
-    return render(request,'sports/registration.html',context)
+#         else:
+#             messages.error(request,'An error occured during registration')
+#     context={'form':form}
+#     return render(request,'sports/registration.html',context)
 
 def login(request):
     page='login'
     if request.user.is_authenticated:
         return redirect('home')
-
     if request.method == 'POST':
         email = request.POST.get('email').lower()
         password=request.POST.get('password')
 
         try:
-            user = User.objects.get(email=email)
+            user = request.objects.get(email=email)
         except:
             messages.error(request,'User doesnot exit')
-
         user=authenticate(request,email=email,password=password)
         
         if user is not None:
@@ -65,7 +63,6 @@ def login(request):
             return redirect('home')
         else:
              messages.error(request,'Username or Password exit')
-
     context={'page':page}
     return render(request,'sports/Login.html',context)
 
@@ -110,9 +107,6 @@ def payment(request):
     if request.user.is_authenticated:
         customer=request.user.customer
         order,created=Order.objects.get_or_create(customer=customer,complete=False)
-        
-
-
     else:
         customer,order= guestOrder(request,data)
 

@@ -1,7 +1,7 @@
 from django.db import models
 
 
-Create your models here.
+# Create your models here.
 class Registeration(models.Model):
     name=models.CharField(max_length=200,null=True)
     email=models.CharField(max_length=200,null=True)
@@ -12,7 +12,7 @@ class Registeration(models.Model):
     date_added=models.DateTimeField(auto_now_add=True)
     dateofbirth=models.CharField(max_length=200,null=True)
     nationality=models.CharField(max_length=200,null=True)
-    number=name=models.CharField(max_length=200,null=True)
+    number=models.CharField(max_length=200,null=True)
     password = models.CharField(max_length=50)
     confirmpassword = models.CharField(max_length=50)
 
@@ -21,7 +21,7 @@ class Contact(models.Model):
      fname=models.CharField(max_length=200,null=True)
      lname=models.CharField(max_length=200,null=True)
      email=models.CharField(max_length=200,null=True)
-     number=name=models.CharField(max_length=200,null=True)
+     number=models.CharField(max_length=200,null=True)
      msg=models.CharField(max_length=200,null=True)
 
 class Members(models.Model) :
