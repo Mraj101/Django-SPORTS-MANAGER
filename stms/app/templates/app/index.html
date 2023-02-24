@@ -16,11 +16,13 @@
         
     .full-page
     {
+        left: 0;
+        top: 0;
         min-height: 100%;
         min-width: 100%;
         background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url(images/pic1.png);
         background-position: center;
-        background-size: cover;
+        background-size:cover;
         position: absolute;
     }
     </style>
@@ -62,7 +64,8 @@
                 </div>
             <button type='submit'class='submit-btn'>Log in</button>
          </form>
-         <form id='register' class='input-group-register'>
+         <form method="POST" id='register' class='input-group-register'>
+            {% csrf_token %}
              <input type='text'class='input-field'placeholder='Name' required>
              <input type='email'class='input-field'placeholder='Email Id' required>
              <input type='password'class='input-field'placeholder='Password' required>
