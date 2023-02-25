@@ -31,7 +31,7 @@ def register(request):
 
 
 
-def login(request):
+def loginPage(request):
     if request.method=='POST':
         email=request.POST['email']
         password=request.POST['password']
