@@ -1,6 +1,8 @@
+from urllib import request
 from django.shortcuts import render,redirect
 from django.forms import inlineformset_factory
 from django.contrib.auth.models import User,auth
+from django.contrib.auth import authenticate,login,logout
 
 from app.models import Registration
 
@@ -29,9 +31,18 @@ def register(request):
 
 
 
-def login(requset):
-    pass
+def login(request):
+    if request.method=='POST':
+        email=request.POST['email']
+        password=request.POST['password']
 
+        user=authenticate(email=email,password=password)
+
+        if user is not None:
+            login(request,user)
+            return render(request,'app/done.html')
+        else:
+            return redirect('/')
 
 
 

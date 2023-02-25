@@ -72,16 +72,18 @@
               Register
             </button>
           </div>
-          <form method="post" id="login" class="input-group-login">
+          <form action="{% url 'done' %}" method="post" id="login" class="input-group-login">
             {% csrf_token %}
             <input
               type="email"
+              name="email"
               class="input-field"
               placeholder="Email Id"
               required
             />
             <input
               type="password"
+              name="password"
               class="input-field"
               placeholder="Enter Password"
               required
