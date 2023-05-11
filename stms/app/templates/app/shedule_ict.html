@@ -1,0 +1,36 @@
+{%extends 'navbar2.html'%}
+
+{%block content%}
+                    <h2 class="text-center mt-2">ICT Shedule</h2>
+                    <hr>
+                    <div class="text-center mt-4">
+                      <h3>All Team</h3>
+                      <table class="table table-success table-hover">
+                          <thead>
+                            <tr>
+                              <th>Team Name</th>
+                              <th>Captain Name</th>
+                              <th>Time</th>
+                    
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {%for t in team%}
+                            <tr>
+                              <td>{{t.teamname}}</td>
+                              <td>{{t.captainname}}</td>
+                              {%for t in time%}
+                              <td>{{t.ict_time}}</td>
+                              {%endfor%}
+                            </tr>
+                            {%endfor%}
+                    
+                    
+                          </tbody>
+                        </table>
+                    </div>
+
+
+
+
+{%endblock%}

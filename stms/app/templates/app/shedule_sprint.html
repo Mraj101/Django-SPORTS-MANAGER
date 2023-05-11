@@ -1,0 +1,35 @@
+{%extends 'navbar2.html'%}
+
+{%block content%}
+                    <h2 class="text-center mt-2">Sprint Shedule</h2>
+                    <hr>
+                    <div class="text-center mt-4">
+                      <h3>All Member</h3>
+                      <table class="table table-success table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">Team Name</th>
+                              <th scope="col">Member Name</th>
+                              <th scope="col">Time</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              {%for t in team%}
+                              <td>{{t.teamname}}</td>
+                              <td>{{t.captainname}}</td>
+                              {%for t in time%}
+                              <td>{{t.sprint_time}}</td>
+                              {%endfor%}
+                            </tr>
+                            {%endfor%}
+                  
+                  
+                          </tbody>
+                        </table>
+                  </div>
+
+
+
+
+{%endblock%}

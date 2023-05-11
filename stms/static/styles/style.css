@@ -1,193 +1,105 @@
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-*
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.imagee{
 
-}
+  display:flex;
+  gap: 80px;
+  
+  }
+  .txt{
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    color: #67958B;
 
-body {
-        min-height: 100vh;
-        font-family: Verdana, Arial, sans-serif;
-    }
-    
-
-.navbar-brand{
-	font-size: 15px;
+  }
+.testimonial {
+  position: relative;
+  max-width:800px;
+  width: 100%;
+  padding: 50px 0;
+  overflow: hidden;
 }
-.navbar-dark{
-    background-color: #67958B;
-    font-size: 15px;
+.testimonial .image {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border: 2px solid #67958B;
+  border-radius: 50%;
 }
-.navbar-dark a:hover{
-    background-color: #026459;
+.testimonial .slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 30px;
+  height: 100%;
+  width: 100%;
 }
-
-.navbar-toggler-icon{
-    color:#fff;
-    font-size:20px;
-    right: 3px;
-    position:relative;
+.slide p {
+  text-align: center;
+  padding: 0 160px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
 }
-.terms-conditions span{
-	color:#fff;
-	font-size:12px;
-	bottom:1px;
-	position:relative;
+.slide .quote-icon {
+  font-size: 30px;
+  color: #67958B;
 }
-.remember-pass span{
-	color:#fff;
-	font-size:15px;
-	bottom:1px;
-	position:relative;
+.slide .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.loginbtn:hover
-{
-    cursor: pointer;
+.details .date {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
 }
-#login-form
-{
+.details .time {
+  font-size: 12px;
+  font-weight: 400;
+  color: #333;
+}
+/* swiper button css */
+.nav-btn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  transform: translateY(30px);
+  background-color: #67958B;
+  transition: 0.2s;
+}
+.nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.nav-btn::after,
+.nav-btn::before {
+  font-size: 20px;
+  color: #fff;
+}
+.swiper-pagination-bullet {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.swiper-pagination-bullet-active {
+  background-color: #67958B;
+  
+}
+@media screen and (max-width: 768px) {
+  .slide p {
+    padding: 0 20px;
+  }
+  .nav-btn {
     display: none;
+  }
 }
-.form-box
-{
-    width:380px;
-    height:550px;
-   position: relative;
-    margin: 3px auto;
-	background:rgba(0,0,0,0.8);
-	padding:3px;
-    overflow: hidden;
-}
-.button-box
-{
-	width:220px;
-	margin:35px auto;
-	position:relative;
-	box-shadow: 0 0 20px 9px #202020;
-	border-radius: 30px;
-    
-}
-.toggle-btn
-{
-    margin-right: 5px;
-    padding: 5px;
-	cursor:pointer;
-	background:transparent;
-	border:0;
-	outline: none;
-	position: relative;
-}
-#btn
-{
-	top: 0;
-	left:0;
-	position: absolute;
-	width: 130px;
-	height: 100%;
-	background: #67958B;
-	border-radius: 30px;
-	transition: .5s;
-}
-.input-group-login
-{
-	top: 200px;
-	position:absolute;
-	width:280px;
-	transition:.5s;
-}
-.input-group-register
-{
 
-    top: 90px;
-	position:absolute;
-	width:280px;
-	transition:.5s;
-}
-.input-field
-{
    
-	width: 100%;
-	padding:2px 0;
-	margin:2px 0;
-	border-left:0;
-	border-top:0;
-	border-right:0;
-	border-bottom: 1px solid #fff;
-	outline:none;
-	background: transparent;
-    
-    
-}
-.button-box .toggle-btn
-{
-color: #fff;
-    
-}
-.button-box button
-{
-padding-left: 35px;
-    
-}
-.submit-btn
-{
-	width: 85%;
-	padding: 10px 30px;
-	cursor: pointer;
-	display: block;
-	margin: auto;
-	background: #67958B;
-	border: 0;
-	outline: none;
-	border-radius: 30px;
-    color: #fff;
-    
-}
-.check-box
-{
-	margin: 30px 10px 34px 0;
-}
-
-#login
-{
-	left:50px;
-}
-#login input
-{
-	color:white;
-	font-size:12;
-}
-#register
-{
-	left:450px;
-}
-#register input
-{
-	color:white;
-	font-size: 12;
-}
-
-footer{
-
-    position: absolute;
-    background-color: #67958B;
-    width: 100%;
-    color: black;
-}
-footer{
-    height: 6vh;
-    bottom: 0;
-
-}
-footer p{
-    padding:2px;
-    font-size: 1.8vw;
-    text-align: center;
-    color:#D1D1D1
-}
-footer p:hover
-{
-    cursor: pointer;
-    color:  #202020;
-}

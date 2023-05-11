@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'phonenumber_field',
+    "phonenumber_field",
+    'phonenumbers' ,
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'stms.urls'
+
 
 TEMPLATES = [
     {
@@ -119,6 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+AUTHENTICATION_BACKENDS=[
+    'app.auth.Email_OR_Username'
+]
+
 
 
 STATICFILES_DIRS = [
